@@ -1,0 +1,39 @@
+NOTE==HOW TO INCLUDE TAILWIND AND FLOWBITE IN YOUR HTML FILE.
+KISI BHI PAGE PR TAILEIND CSS CHAHIE
+
+1. npx tailwindcss -i scm/src/main/resources/static/css/input.css -o scm/src/main/resources/static/css/output.css
+2. include output.css in your html
+3. If you want flowbite: include css and javascript using cdn
+
+
+NOTE==
+
+
+FRAGMENTS IN THTMLEAF
+Link to read documentation=https://www.thymeleaf.org/doc/articles/layouts.html
+
+# how to create fragment
+
+<div class="parent-fregment" th:fragment="parent(content)">
+        <h1>This is parent Fragment</h1>
+        <!-- <h1>Value of x is <span th:text="${x}"></span></h1>
+        <h1>Value of x is <span th:text="${y}"></span></h1> -->
+
+        <div th:replace="${content}"></div>
+</div>
+
+# how to insert and replace
+
+  <!-- using fragment -->
+    <div class ="host-tag" th:replace="~{base :: parent(~{::.third_content})}">
+        <section id="main_content">
+            <h1>This is Dynamic services passed to base parent</h1>
+        </section>
+        <section id="m_content">
+            <h1>This is Dynamic </h1>
+        </section>
+
+        <section class="third_content">
+            <h1>This is Dynamic Third</h1>
+        </section> 
+    </div>

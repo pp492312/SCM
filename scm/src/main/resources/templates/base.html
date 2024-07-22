@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Base Template</title>
+</head>
+<body>
+    <div class="parent-fregment" th:fragment="parent(content)">
+        <h1>This is parent Fragment</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis iusto laudantium ex deleniti unde illum error repellat
+        aliquid! Recusandae iure facere deserunt autem, natus non cum esse fugiat ut nihil!</p>
+        <!-- <h1>Value of x is <span th:text="${x}"></span></h1>
+        <h1>Value of x is <span th:text="${y}"></span></h1> -->
+
+        <div th:replace="${content}"></div>
+    </div>
+
+    <div th:fragment="test">
+        <h1>This is testing fragment</h1>
+    </div>
+</body>
+</html>
