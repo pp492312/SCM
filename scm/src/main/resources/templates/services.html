@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Services Page</title>
+    <!-- <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" /> -->
 </head>
 <body>
-    <h1>This is services Page</h1>
+    <section id="content">
+        <h1>Welcome to services page</h1>
+        <h2>services offered by SCM</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </section>
 
-      <!-- using fragment -->
-    <div class ="host-tag" th:replace="~{base :: parent(~{::.third_content})}">
-        <section id="main_content">
-            <h1>This is Dynamic services passed to base parent</h1>
-        </section>
-        <section id="m_content">
-            <h1>This is Dynamic </h1>
-        </section>
-
-        <section class="third_content">
-            <h1>This is Dynamic Third</h1>
-        </section> 
-    </div>
+    <script>
+        console.log("Services Page");
+    </script>
 </body>
 </html>

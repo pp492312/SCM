@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" 
+th:fragment="parent(content,title,script)" 
+xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Base Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCM</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="parent-fregment" th:fragment="parent(content)">
-        <h1>This is parent Fragment</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis iusto laudantium ex deleniti unde illum error repellat
-        aliquid! Recusandae iure facere deserunt autem, natus non cum esse fugiat ut nihil!</p>
-        <!-- <h1>Value of x is <span th:text="${x}"></span></h1>
-        <h1>Value of x is <span th:text="${y}"></span></h1> -->
+    <!-- common header -->
+     <ul class="p-4">
+        <li>
+            <a data-th-href="@{'/home'}">Home</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/about'}">About</a>
+        </li>
+        <li>
+            <a data-th-href="@{'/services'}">Services</a>
+        </li>
+     </ul>
 
-        <div th:replace="${content}"></div>
+    <!-- Main Content-->
+
+    <div class="p-4">
+        <section data-th-replace="${content}"></section>
     </div>
 
-    <div th:fragment="test">
-        <h1>This is testing fragment</h1>
-    </div>
+    <!--  Common Footer  -->
+      <footer class="p-4">Footer: Learn Code With Durgesh.</footer>
+
+
+    <!-- Flow Content-->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+    <th:block data-th-replace="${script}"></th:block>
 </body>
 </html>
