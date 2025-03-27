@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" 
+<html class="light" lang="en" 
 th:fragment="parent(content,title,script)" 
 xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,33 +8,29 @@ xmlns:th="http://www.thymeleaf.org">
     <title data-th-replace="${title}">SCM</title>
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
+<body class="dark:bg-gray-900 bg-gray-100 dark:text-white">
     <!-- common header -->
-     <ul class="p-4">
-        <li>
-            <a data-th-href="@{'/home'}">Home</a>
-        </li>
-        <li>
-            <a data-th-href="@{'/about'}">About</a>
-        </li>
-        <li>
-            <a data-th-href="@{'/services'}">Services</a>
-        </li>
-     </ul>
+     <div data-th-replace="~{navbar :: navbar}"></div>
 
     <!-- Main Content-->
 
-    <div class="p-4">
+    <div class="p-4 ">
         <section data-th-replace="${content}"></section>
     </div>
 
     <!--  Common Footer  -->
-      <footer class="p-4">Footer: Learn Code With Durgesh.</footer>
+      <footer class="p-4">Footer:</footer>
 
 
     <!-- Flow Content-->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
 
     <th:block data-th-replace="${script}"></th:block>
 </body>
