@@ -25,7 +25,6 @@ public class SecurityConfig {
     private final DaoAuthenticationProvider authenticationProvider;
 
 
-
     // user create and login using java code with in memory service
     // @Bean
     // public UserDetailsService userDetailsService(){
