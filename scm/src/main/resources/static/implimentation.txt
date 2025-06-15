@@ -2,3 +2,6 @@
 -> Video 16
 -SecurityConfig.java
 .authenticate users from db to login using AuhtenticationProvider
+
+// TAILWIND CSS 
+npx tailwindcss -i src/main.css -o ./src/output.css --watch

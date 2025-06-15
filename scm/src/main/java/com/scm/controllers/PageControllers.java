@@ -29,6 +29,11 @@ public class PageControllers {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/")
+    public String index(){
+        return "redirect:/home";
+    }
+
     @RequestMapping("/home")
     public String home(Model model) {
        // model.addAttribute("isLogin",true);
@@ -63,13 +68,14 @@ public class PageControllers {
     }
 
     // login page
+    // this is showing login page
 
     @GetMapping("/login")
     public String login() {
         return new String("login");
     }
     
-    // Register or signup page
+    // Registration or signup page
 
     @GetMapping("/register")
     public String register(Model model) {

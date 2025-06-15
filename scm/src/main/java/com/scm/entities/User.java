@@ -62,7 +62,7 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     // SELF, GOOGLE, FACEBOOK, TWITTER, LINKDIN, GITHUB
     private Providers provider=Providers.SELF;
-    private String providerUsreId;
+    private String providerUserId;
 
     // mapping from Contact table
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)

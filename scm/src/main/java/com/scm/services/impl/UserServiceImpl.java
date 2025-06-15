@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService
         user2.setEmailVerified(user.isEmailVerified());
         user2.setPhoneVerified(user.isPhoneVerified());
         user2.setProvider(user.getProvider());
-        user2.setProviderUsreId(user.getProviderUsreId());
+        user2.setProviderUserId(user.getProviderUserId());
 
         // Save the user in database
 
@@ -98,6 +98,12 @@ public class UserServiceImpl implements UserService
     @Override
     public List<User> getAllUsers() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+    
+        return userRepo.findByEmail(email).orElse(null) ;
     }
 
 }
