@@ -1,3 +1,4 @@
+
 {
   "name": "scm",
   "version": "1.0.0",
@@ -9,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "scmApplication",
   "devDependencies": {
     "tailwindcss": "^3.4.4"
   },
@@ -19,3 +20,4 @@
     "scm": "file:"
   }
 }
+
