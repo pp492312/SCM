@@ -1,7 +1,8 @@
 package com.scm.entities;
 
-//import org.hibernate.mapping.List;
 import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -20,7 +21,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Contact {
 
     @Id
@@ -30,22 +30,21 @@ public class Contact {
     private String phoneNumber;
     private String address;
     private String picture;
-    @Column(length=1000)
+    @Column(length = 1000)
     private String description;
-    private boolean favorite=false;
-
-    private String webSiteLink;
-    private String linkdinId;
-
-    
-    //private List<String> socialLink=new ArrayList<>();
-
-    // Mapping form User table
+    private boolean favorite = false;
+    private String websiteLink;
+    private String linkedInLink;
+    // private List<String> socialLinks=new ArrayList<>();
+    private String cloudinaryImagePublicId;
     @ManyToOne
+    @JsonIgnore
     private User user;
 
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<SocialLink> links = new ArrayList<>();
 
-    // mapping from SocialLink table
-   @OneToMany(mappedBy = "contact",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<SocialLink> links=new ArrayList<>();
+// mapping from SocialLink table
+//    @OneToMany(mappedBy = "contact",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//     private List<SocialLink> links=new ArrayList<>();
 }

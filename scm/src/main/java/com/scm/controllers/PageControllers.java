@@ -122,6 +122,7 @@ public class PageControllers {
         user.setPassword(userForm.getPassword());
         user.setAbout(userForm.getAbout());
         user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setEnabled(false);
         user.setProfilePic("https://stock.adobe.com/in/search/images?k=default+profile+picture&asset_id=875459719");
 
         User savedUser = userService.saveUser(user);

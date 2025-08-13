@@ -115,6 +115,9 @@ public class SecurityConfig {
     @Autowired
     private OAuthAuthenicationSuccessHandler handler;
 
+    @Autowired
+    private AuthFailtrueHandler authFailtrueHandler;
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -150,7 +153,7 @@ public class SecurityConfig {
             formLogin.usernameParameter("email");
             formLogin.passwordParameter("password");
             
-            
+            formLogin.failureHandler(authFailtrueHandler);
         });
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
